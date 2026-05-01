@@ -7,9 +7,9 @@ const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const EXPIRY_HOURS = Number(process.env.EXPIRY_HOURS) || 6;
+const EXPIRY_HOURS = Number(process.env.EXPIRY_HOURS) || 3;
 const MAX_FILE_SIZE_MB = Number(process.env.MAX_FILE_MB) || 100;
-const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
+const BASE_URL = process.env.PUBLIC_URL || `http://localhost:${PORT}`;
 
 // ─── STORAGE ──────────────────────────────────────────────────────────────────
 // In-memory store: { [fileId]: { originalName, storedName, mimeType, size, uploadedAt, expiresAt } }
