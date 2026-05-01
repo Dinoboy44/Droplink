@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: droplink
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: EXPIRY_HOURS
+        value: "6"
+      - key: MAX_FILE_MB
+        value: "100"
+      - key: BASE_URL
+        # Set this to your Render service URL after first deploy
+        # e.g. https://droplink.onrender.com
+        value: "https://your-app-name.onrender.com"
+    disk:
+      name: uploads
+      mountPath: /app/uploads
+      sizeGB: 1
